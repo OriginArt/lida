@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Шаблон ❖ Twitter Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">   
+  <meta name="keywords" content="">
+  
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background:#EEEEEE">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="hero-unit">
+          <h1>Быстрее, точнее, больше и надежнее...</h1>
+          <p>Точность прогнозов с использованием новых алгоритмов соответствует реальности на 97%</p>
+          <p>
+          <a class="btn btn-primary btn-large">Подробнее</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+<div style="margin:0 auto;position:relative;width: 50%">
+        <form class="form-horizontal">
+          <legend>Станьте частью сообщества прямо сейчас:</legend>
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Логин или Email</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge" id="inputEmail" placeholder="Логин или Email">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Пароль</label>
+            <div class="controls">
+              <input type="password" class="input-xlarge" id="inputPassword" placeholder="Пароль">
+            </div>
+          </div>
+	  <div class="alert alert-info">
+	    <button type="button" class="close" data-dismiss="alert">×</button>
+	    <strong>Важно!</strong>
+	    Для регистрации укажите существующий email.
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-primary" id="enter">Войти</button>
+              <button type="submit" class="btn">Присоединиться</button>
+            </div>
+          </div>
+        </form>
+</div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    function etst (){
+      emailTest = /^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+\.)+[a-z]{2,6}$/;
+      email = $('#inputEmail').val();
+      if ( !emailTest.test(email) ) alert("Неверно");
+      else alert("Верно ");
+    }
+    
+    $("#enter").on("click", function(){etst();});
+  </script>
+</body>
+</html>

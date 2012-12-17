@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Ввод данных для построения прогноза</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">   
+  <meta name="keywords" content="">
+  
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/datepicker.css" rel="stylesheet">
+</head>
+<body style="background:#EEEEEE">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <form class="form-horizontal">
+          <div style="margin:0 auto;position:relative;width: 50%">
+	    <div class="alert alert-error" id="alert"><strong>Ошибка!</strong></div>
+
+	    <div class="control-group">
+              <label class="control-label" for="inputEmail">Начинаем с :</label>
+              <div class="controls">
+                <div class="input-append date" id="dps" data-date-format="dd-mm-yyyy">
+                  <input class="span2" size="16" type="text">
+                  <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPassword">Заканчиваем :</label>
+              <div class="controls">
+                <div class="input-append date" id="dpe" data-date-format="dd-mm-yyyy">
+                  <input class="span2" size="16" type="text">
+                  <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Алгоритм :</label>
+	      <div class="controls">
+                <select>
+		  <option>Блаблаблова - Эксена</option>
+		  <option>Лидочка</option>
+		  <option>Дима</option>
+		</select>
+              </div>
+            </div>
+	  </div>
+	    <div class="control-group">
+              <div class="row">
+		<div class="span6" id="sell">
+		  <label class="control-label">Продать :</label>
+		  <div class="controls">
+		    <label class="radio">
+		      <input type="radio" value="R01235" name="sellMon" id="sm1" checked> Доллар (США)
+		    </label>
+		    <label class="radio">
+		      <input type="radio" value="R01035" name="sellMon" id="sm2"> Фунт
+		    </label>
+		    <label class="radio">
+		      <input type="radio" value="rusrub" name="sellMon" id="sm3"> Рубль
+		    </label>
+		  </div>
+		</div>
+		<div class="span6" id="buy">
+		  <label class="control-label">Купить :</label>
+		  <div class="controls">
+		    <label class="radio">
+		      <input type="radio" value="R01235" name="buyMon" id="bm1" checked> Доллар (США)
+		    </label>
+		    <label class="radio">
+		      <input type="radio" value="R01035" name="buyMon" id="bm2"> Фунт
+		    </label>
+		    <label class="radio">
+		      <input type="radio" value="rusrub" name="buyMon" id="bm3"> Рубль
+		    </label>
+		  </div>
+		</div>
+	      </div>
+            </div>
+	    <div class="control-group" style="text-align: center">
+	      <button class="btn btn-success btn-large" id="btbuild" type="button">Построить прогноз</button>
+	    </div>
+        </form>
+      </div>
+    </div>  
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
