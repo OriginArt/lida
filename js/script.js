@@ -36,7 +36,8 @@ $(function(){
  *Общие обработчики. Вступают в силу после загрузки страницы
  */
 $(document).ready(function(){
-      
+    
+    var fls = 0, flb = 0;  
     var cache = {
                  ncd : "", //id валюты
                  typ : "", //тип операции [Покупка, Продажа]
@@ -72,19 +73,38 @@ $(document).ready(function(){
      *Это Callback-функция. Она отрабатывает при удачном запросе к серверу.
      */
     function xmlsuc (xml, typ){
-      var i = 0, rst, al = $('#alert');
+      var i = 0, rst, al = $('#alert'), ob = {}, dt = [];
+      
+      if ( typ == 'sell' ) fls = 1;
+      else if ( typ == 'buy' ) flb = 1;
+      else { alert("Неизвестная операция над валютой!"); return; } 
       
       al.show().find('strong').text('Расчет данных о продаже.');
       cache.typ = typ;
       rst = $(xml).find('Record').each( function(){
                                                    cache.dat[ i ] = $(this).attr("Date");
                                                    cache.val[ i ] = $(this).find("Value").text();
+                                                   ob = { y : cache.val[ i ].replace( ",", "."), x : cache.dat[ i ] };
+                                                   dt.push( ob );
                                                    i++;
                                                   });
       cache.ncd = rst.attr("Id");
       if ( i == 0 ) alert("Ничего не было получено.");
       al.hide();
-      console.log(i);
+      console.log( dt );
+      
+      if ( fls && flb ) { 
+        Morris.Line({
+          element: 'annual',
+          data: dt,
+          xkey: 'x',
+          ykeys: ['y'],
+          labels: ['Series B'],
+          lineColors: ['#167f39'],
+          lineWidth: 2,
+          parseTime: false
+        });
+      }
     }    
     
     
